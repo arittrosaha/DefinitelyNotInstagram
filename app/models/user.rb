@@ -1,27 +1,29 @@
 class User < ApplicationRecord
   attr_reader :password
 
-  validates (:email, :full_name, :username, :password_digest, :session_token,
-              presence: true)
+  validates :email, :full_name, :username, :password_digest, :session_token, presence: true
   validates :email, :username, :session_token, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
+  validates_inclusion_of :gender, in: ["Male", "Female", "Not Specified"], allow_nil: true
 
-  has_many :posts,
-    foreign_key: :author_id
+  after_initialize :ensure_session_token
 
-  has_many :comments,
-    foreign_key: :author_id
-
-  has_many :likes,
-    foreign_key: :liker_id
-
-  has_many :followers,
-    class_name: 'follows',
-    foreign_key: :followee_id
-
-  has_many :followees,
-    class_name: 'follows',
-    foreign_key: :follower_id
+  # has_many :posts,
+  #   foreign_key: :author_id
+  #
+  # has_many :comments,
+  #   foreign_key: :author_id
+  #
+  # has_many :likes,
+  #   foreign_key: :liker_id
+  #
+  # has_many :followers,
+  #   class_name: 'follows',
+  #   foreign_key: :followee_id
+  #
+  # has_many :followees,
+  #   class_name: 'follows',
+  #   foreign_key: :follower_id
 
   def self.find_by_credentials (username, password)
     user = User.find_by(username: username)
