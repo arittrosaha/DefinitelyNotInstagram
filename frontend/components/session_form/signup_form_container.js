@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signup, sessionType } from '../../actions/session_actions';
+import { login, signup, sessionType, receiveSessionErrors } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
 
@@ -9,15 +9,20 @@ const mapStateToProps = (state) => {
   return({
     errors: state.errors.session,
     user: {email: "", full_name: "", username: "", password: ""},
-    formType: 'Sign up',
-    alternativeType: 'Log in'
+    demoUser: {username: "demoUser", password: "DemoUserAS"},
+    formType: ['Sign up', "By signing up, you agree to be", "Master of the Universe!"],
+    alternativeType: ['Log in', 'Have an account?']
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    alternativeForm: () => dispatch(sessionType('LogInFormContainer')),
-    formAction: (user) => dispatch(signup(user))
+    alternativeForm: () => {
+      dispatch(sessionType('LogInFormContainer'));
+      dispatch(receiveSessionErrors([]));
+    },
+    formAction: (user) => dispatch(signup(user)),
+    loginDemo: (user) => dispatch(login(user))
   });
 };
 
