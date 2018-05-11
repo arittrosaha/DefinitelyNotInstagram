@@ -1,7 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default (props) => {
+const User = (props) => {
   return (
-    <div>Profile</div>
+    <div>
+      <img src={props.user.avatar_url} />
+    </div>
   );
 };
+
+const mapStateToProps = (state, ownParams) => {
+  return ({
+    user: state.entities.users[ownParams.match.params.userId]
+  });
+};
+
+export default connect(mapStateToProps)(User);

@@ -5,9 +5,9 @@ class User < ApplicationRecord
   validates :email, :username, :session_token, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
   # validates_inclusion_of :gender, in: ["Male", "Female", "Not Specified"], allow_nil: true
-  # styles: { medium: "300x300>", thumb: "100x100>" },
-  has_attached_file :avatar,  default_url: "demoFace.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  # ,
+  has_attached_file :avatar, default_url: "demoFace.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   after_initialize :ensure_session_token
 

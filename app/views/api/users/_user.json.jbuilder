@@ -1,2 +1,3 @@
 json.extract! user, :id, :username, :full_name, :bio
-json.avatar_url user.avatar.url
+
+json.avatar_url asset_path(user.avatar.url)
