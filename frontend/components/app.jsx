@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect, Switch, Link } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import SignUpFormContainer from './session_form/signup_form_container';
@@ -15,7 +15,7 @@ const App = (props) => {
   }
 
   return (
-    <Route exact path='/' component={landing} />
+    <Route path='/' component={landing} />
   );
 };
 
@@ -32,4 +32,4 @@ const mapStateToProps = ({session, ui}) => {
   });
 };
 
-export default connect(mapStateToProps)(App);
+export default withRouter(connect(mapStateToProps)(App));
