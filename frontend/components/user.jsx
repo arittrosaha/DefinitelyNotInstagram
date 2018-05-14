@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 
 import Modal from './modal';
 import { openModal } from '../actions/modal_actions';
+import { fetchUser } from '../actions/users_actions';
 
 class User extends React.Component {
   constructor(props) {
@@ -12,6 +13,12 @@ class User extends React.Component {
 
   handleModal(modal) {
     return () => this.props.openModal(modal) ;
+  }
+
+  componentDidMount(){
+    if (this.props.currentUserId !== this.props.match.params.userId) {
+      this.props.fetchUser(this.props.match.params.userId);
+    }
   }
 
   currentUserAvatar() {
@@ -42,6 +49,20 @@ class User extends React.Component {
     return edit;
   }
 
+  currentUserGear(){
+    let gear;
+    if (this.props.currentUserId === this.props.user.id) {
+      gear = (
+        <button onClick={this.handleModal('gear')}>
+          <i className="fas fa-cog fa-lg"></i>
+        </button>
+      );
+    } else {
+      gear = null;
+    }
+    return gear;
+  }
+
   render() {
     return (
       <div className='user'>
@@ -60,9 +81,7 @@ class User extends React.Component {
 
               {this.currentUserEdit()}
 
-              <button onClick={this.handleModal('gear')}>
-                <i className="fas fa-cog fa-lg"></i>
-              </button>
+              {this.currentUserGear()}
             </div>
 
             <ul className="user-second">
@@ -89,16 +108,23 @@ class User extends React.Component {
   }
 }
 
-const mapStateToProps = (state, ownParams) => {
+const mapStateToProps = (state, ownProps) => {
+  let user;
+  if (state.entities.users[ownProps.match.params.userId] === undefined ) {
+    user = {};
+  } else {
+    user = state.entities.users[ownProps.match.params.userId];
+  }
   return ({
-    user: state.entities.users[ownParams.match.params.userId],
+    user: user,
     currentUserId: state.session.id
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal) => dispatch(openModal(modal)),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   });
 };
 
