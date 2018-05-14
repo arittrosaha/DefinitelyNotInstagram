@@ -71,3 +71,14 @@
 .profile-edit-button-enabled:active {
   opacity: .7;
 }
+
+.profile-edit-errors {
+  color: red;
+  font-family: sans-serif;
+  font-size: 14px;
+  width: 241px;
+}
+
+.profile-edit-errors > li {
+  list-style: circle;
+}

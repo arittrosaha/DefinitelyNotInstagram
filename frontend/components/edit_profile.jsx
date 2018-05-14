@@ -28,6 +28,20 @@ class EditProfile extends React.Component {
     };
   }
 
+  renderErrors(){
+    return (
+      <ul className='profile-edit-errors'>
+        {this.props.errors.map((error, idx) => {
+          return (
+            <li key={`error-${idx}`}>
+              {`${error}!`}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+
   render () {
 
     let buttonClass;
@@ -66,6 +80,12 @@ class EditProfile extends React.Component {
 
         <div className='profile-edit-property'>
           <div className='profile-edit-label'></div>
+          {this.renderErrors()}
+        </div>
+
+
+        <div className='profile-edit-property'>
+          <div className='profile-edit-label'></div>
           <button disabled={!this.state.buttonClass} className={`profile-edit-button-${buttonClass}`}>Submit</button>
         </div>
       </form>
@@ -76,7 +96,8 @@ class EditProfile extends React.Component {
 
 const mapStateToProps = (state) => {
   return ({
-    user: state.entities.users[state.session.id]
+    user: state.entities.users[state.session.id],
+    errors: state.errors.user
   });
 };
 
