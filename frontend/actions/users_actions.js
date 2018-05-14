@@ -3,6 +3,7 @@ import { receiveCurrentUser } from './session_actions';
 
 export const RECEIVE_USERS_ERRORS = 'RECEIVE_USERS_ERRORS';
 
+
 export const receiveUsersErrors = (errors) => {
   return ({
     type: RECEIVE_USERS_ERRORS,
@@ -12,6 +13,14 @@ export const receiveUsersErrors = (errors) => {
 
 export const updateUser = (user) => (dispatch) => {
   return UserApiUtil.updateUser(user).then( currentUser => {
+    dispatch(receiveCurrentUser(currentUser));
+  }, errors => {
+    dispatch(receiveUsersErrors(errors.responseJSON));
+  });
+};
+
+export const updateUserAvatar = (user) => (dispatch) => {
+  return UserApiUtil.updateUserAvatar(user).then( currentUser => {
     dispatch(receiveCurrentUser(currentUser));
   }, errors => {
     dispatch(receiveUsersErrors(errors.responseJSON));

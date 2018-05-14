@@ -1,0 +1,42 @@
+.user-edit{
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 3px;
+  margin: 60px auto 0;
+  max-width: 935px;
+  display: flex;
+}
+
+.user-edit-ul {
+  border-right: 1px solid #dbdbdb;
+  height: 742px;
+}
+
+.user-edit-link {
+  font-size: 16px;
+  font-family: sans-serif;
+  line-height: 18px;
+  width: 236px;
+  height: 52px;
+  padding: 16px 16px 16px 30px;
+  display: block;
+  border-left: 2px solid transparent;
+}
+
+.user-edit-link:hover {
+  background-color: #fafafa;
+  border-left-color: #dbdbdb;
+}
+
+.user-edit-link:active {
+  opacity: .5;
+}
+
+.user-edit-active {
+  border-left-color: #262626;
+  font-weight: 600;
+}
+
+.user-edit-article {
+  width: 100%;
+}

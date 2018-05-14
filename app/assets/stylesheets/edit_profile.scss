@@ -1,0 +1,73 @@
+.profile-edit-form {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.profile-edit-property {
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.profile-edit-label {
+  padding: 0 32px;
+  margin-top: 6px;
+  text-align: right;
+  font-weight: 600;
+  flex-basis: 194px;
+}
+
+.profile-edit-input {
+  flex-basis: 355px;
+  padding-right: 60px;
+  height: 32px;
+  text-align: start;
+  border: 1px solid #efefef;
+  padding-left: 10px;
+}
+
+.profile-edit-textarea {
+  flex-basis: 355px;
+  padding-right: 60px;
+  height: 60px;
+  text-align: start;
+  border: 1px solid #efefef;
+  padding-left: 10px;
+}
+
+.profile-edit-private {
+  flex-basis: 355px;
+  height: 34px;
+  padding-top: 16px;
+  color: #999;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.profile-edit-button-enabled {
+  padding: 0 24px;
+  color: #fff;
+  background: #3897f0;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 3px;
+  line-height: 26px;
+}
+
+.profile-edit-button-disabled {
+  opacity: .3;
+  padding: 0 24px;
+  color: #fff;
+  background: #3897f0;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 3px;
+  line-height: 26px;
+}
+
+.profile-edit-button-enabled:active {
+  opacity: .7;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { closeModal } from '../actions/modal_actions';
-import { updateUser } from '../actions/users_actions';
+import { updateUserAvatar } from '../actions/users_actions';
 
 class Avatar extends React.Component {
   constructor(props) {
@@ -15,7 +15,6 @@ class Avatar extends React.Component {
   }
 
   updateAvatar(e) {
-
     const reader = new FileReader();
     const file = e.currentTarget.files[0];
     reader.onloadend = () => {
@@ -36,7 +35,7 @@ class Avatar extends React.Component {
     if (file) {
       formData.append("user[avatar]", file);
     }
-    this.props.updateUser(formData).then(this.props.closeModal);
+    this.props.updateUserAvatar(formData).then(this.props.closeModal);
   }
 
   render () {
@@ -62,7 +61,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    updateUser: (user) => dispatch(updateUser(user)),
+    updateUserAvatar: (user) => dispatch(updateUserAvatar(user)),
     closeModal: () => dispatch(closeModal())
   });
 };
