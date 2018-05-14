@@ -1,12 +1,18 @@
-.nav-bar {
-  display: flex;
+.nav-main{
   background-color: #fff;
   border-bottom: 1px solid #e6e6e6;
+}
+
+.nav-bar {
+  display: flex;
   height: 77px;
   padding: 26px 40px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  max-width: 935px;
+  align-self: center;
+  margin: 0 auto;
 }
 
 .nav-left {

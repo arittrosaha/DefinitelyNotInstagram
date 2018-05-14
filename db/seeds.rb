@@ -7,10 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.destroy_all
 
-User.create!(
+demoUser = User.create!(
   email: 'demoUser@gmail.com',
   full_name: 'Demo User',
   username: 'demoUser',
-  password: 'DemoUserAS'
-  bio: 'Hello, my hero!',
+  password: 'DemoUserAS',
+  bio: "Hello, welcome to Definitely Not Instagram! My name is Demo... Wait, what? I just realized, my name is 'Demo User' -.- ! Who in the world gave me this horrible name?",
 )
+
+demoUser.avatar = "https://s3.amazonaws.com/definitely-not-instagram-dev/users/demoface.jpg"
+demoUser.save!
