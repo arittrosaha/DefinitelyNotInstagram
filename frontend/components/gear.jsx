@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter, Redirect } from 'react-router-dom';
 
 import { logout } from '../actions/session_actions';
 import { closeModal } from '../actions/modal_actions';
@@ -12,6 +13,7 @@ class Gear extends React.Component {
 
   handleLogout() {
     this.props.logout().then(this.props.closeModal);
+    this.props.history.push('/');
   }
 
   render () {
@@ -34,4 +36,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default connect(null, mapDispatchToProps)(Gear);
+export default withRouter(connect(null, mapDispatchToProps)(Gear));
