@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, NavLink, Route, Switch } from 'react-router-dom';
 
 import EditProfile from './edit_profile';
-import EditPassword from './edit_password';
+import PostImage from './post_image';
 
 
 class UserEdit extends React.Component {
@@ -20,13 +20,13 @@ class UserEdit extends React.Component {
           </li>
 
           <li>
-            <NavLink className='user-edit-link' to={`/users/edit/password`} activeClassName="user-edit-active">Edit Password</NavLink>
+            <NavLink className='user-edit-link' to={`/users/edit/posts/new`} activeClassName="user-edit-active">Post Image</NavLink>
           </li>
         </ul>
 
         <article className='user-edit-article'>
           <Switch>
-            <Route path="/users/edit/password" component={EditPassword}></Route>
+            <Route path="/users/edit/posts/new" component={PostImage}></Route>
             <Route component={EditProfile}></Route>
           </Switch>
         </article>

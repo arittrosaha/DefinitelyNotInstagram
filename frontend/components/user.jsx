@@ -2,9 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Link } from 'react-router-dom';
 
-import Modal from './modal';
 import { openModal } from '../actions/modal_actions';
 import { fetchUser } from '../actions/users_actions';
+import Modal from './modal';
+import UserPosts from './user_posts';
+
 
 class User extends React.Component {
   constructor(props) {
@@ -40,7 +42,7 @@ class User extends React.Component {
     if (this.props.currentUserId === this.props.user.id) {
       edit = (
         <Link to={`/users/edit`}>
-          <div className="user-edit-profile">Edit Profile</div>
+          <div className="user-edit-profile">Edit Profile & Post Images</div>
         </Link>
       );
     } else {
@@ -101,8 +103,7 @@ class User extends React.Component {
           </div>
         </div>
 
-        <div className='user-posts'>
-        </div>
+        <UserPosts />
       </div>
     );
   }

@@ -1,0 +1,15 @@
+.user-posts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-posts-img {
+  max-width: 279px;
+  max-height: 279px;
+  margin-right: 28px;
+  margin-bottom: 28px;
+}
+
+.user-posts-img:nth-child(3n+3) {
+  margin-right: 0;
+}
