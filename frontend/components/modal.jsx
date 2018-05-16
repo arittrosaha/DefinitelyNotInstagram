@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
 import Gear from './gear';
 import Avatar from './avatar';
-import Post from './post';
+import PostShow from './post_show';
 
 
 function Modal({modalType, id, closeModal}) {
@@ -27,7 +27,7 @@ function Modal({modalType, id, closeModal}) {
       component = <Avatar />;
       break;
     case 'post':
-      component = <Post postId={id}/>;
+      component = <PostShow postId={id}/>;
       break;
     default:
       return null;
