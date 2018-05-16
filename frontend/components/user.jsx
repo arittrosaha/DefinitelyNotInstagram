@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 
 import { openModal } from '../actions/modal_actions';
 import { fetchUser } from '../actions/users_actions';
+import { fetchPosts } from '../actions/posts_actions';
 import Modal from './modal';
 import UserPosts from './user_posts';
 
@@ -14,12 +15,13 @@ class User extends React.Component {
   }
 
   handleModal(modal) {
-    return () => this.props.openModal(modal) ;
+    return () => this.props.openModal(modal);
   }
 
   componentDidMount(){
     if (this.props.currentUserId !== this.props.match.params.userId) {
       this.props.fetchUser(this.props.match.params.userId);
+      this.props.fetchPosts(this.props.match.params.userId);
     }
   }
 
@@ -27,7 +29,7 @@ class User extends React.Component {
     let avatar;
     if (this.props.currentUserId === this.props.user.id) {
       avatar = (
-        <button onClick={this.handleModal('avatar')}>
+        <button onClick={this.handleModal({type: "avatar"})}>
           <img className="user-avatar" src={this.props.user.avatar_url} />
         </button>
       );
@@ -41,8 +43,8 @@ class User extends React.Component {
     let edit;
     if (this.props.currentUserId === this.props.user.id) {
       edit = (
-        <Link to={`/users/edit`}>
-          <div className="user-edit-profile">Edit Profile & Post Images</div>
+        <Link className="user-edit-profile" to={`/users/edit`}>
+          <div>Edit Profile & Post Images</div>
         </Link>
       );
     } else {
@@ -55,7 +57,7 @@ class User extends React.Component {
     let gear;
     if (this.props.currentUserId === this.props.user.id) {
       gear = (
-        <button onClick={this.handleModal('gear')}>
+        <button onClick={this.handleModal({type: "gear"})}>
           <i className="fas fa-cog fa-lg"></i>
         </button>
       );
@@ -87,6 +89,10 @@ class User extends React.Component {
             </div>
 
             <ul className="user-second">
+              <li className='user-second-li'>
+                <div className='user-post-count'>{this.props.postsCount}</div>
+                <span className='user-post-str'>posts</span>
+              </li>
             </ul>
 
             <div className="user-third">
@@ -116,16 +122,23 @@ const mapStateToProps = (state, ownProps) => {
   } else {
     user = state.entities.users[ownProps.match.params.userId];
   }
+
+  const postsInState = Object.values(state.entities.posts);
+  const posts = postsInState.filter(post => post.author_id === Number(ownProps.match.params.userId));
+  const postsCount = posts.length;
+
   return ({
     user: user,
-    currentUserId: state.session.id
+    currentUserId: state.session.id,
+    postsCount
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
     openModal: (modal) => dispatch(openModal(modal)),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    fetchPosts: (userId) => dispatch(fetchPosts(userId))
   });
 };
 

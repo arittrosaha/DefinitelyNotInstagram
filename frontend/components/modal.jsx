@@ -4,19 +4,30 @@ import { connect } from 'react-redux';
 import { closeModal } from '../actions/modal_actions';
 import Gear from './gear';
 import Avatar from './avatar';
+import Post from './post';
 
 
-function Modal({modal, closeModal}) {
-  if (!modal) {
+function Modal({modalType, id, closeModal}) {
+  if (!modalType) {
     return null;
   }
+  // const myReDigit = /\d+/;
+  // const myArrDigit = myReDigit.exec(modal);
+  // const id = myArrDigit[0];
+  // const myReNonDigit = /\D+/;
+  // const myArrNonDigit = myReNonDigit.exec(modal);
+  // const str = myArrNonDigit[0];
+
   let component;
-  switch (modal) {
+  switch (modalType) {
     case 'gear':
       component = <Gear />;
       break;
     case 'avatar':
       component = <Avatar />;
+      break;
+    case 'post':
+      component = <Post postId={id}/>;
       break;
     default:
       return null;
@@ -32,7 +43,8 @@ function Modal({modal, closeModal}) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.ui.modal
+    modalType: state.ui.modal.type,
+    id: state.ui.modal.id
   };
 };
 
