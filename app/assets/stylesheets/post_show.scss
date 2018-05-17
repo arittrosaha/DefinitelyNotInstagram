@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  justify-content: space-between;
 }
 
 .post-show-author {
@@ -32,7 +33,7 @@
 }
 
 .post-show-scroll-container {
-  flex-grow: 1;
+  height: 300px;
 }
 
 .post-show-scroll {
@@ -62,10 +63,25 @@
 
 .post-show-img-container {
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .post-show-delete {
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 26px;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 5px;
   position: absolute;
-  left: 94%;
+  left: 77%;
   top: 2%;
+}
+
+.post-show-delete:active {
+  opacity: .7;
 }

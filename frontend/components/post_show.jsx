@@ -18,6 +18,20 @@ class PostShow extends React.Component {
     this.props.closeModal();
   }
 
+  PostDeleteButton(){
+    let deleteButton;
+    if (this.props.author.id === this.props.currentUserId) {
+      deleteButton = (
+        <button className="post-show-delete" onClick={this.handlePostDelete}>
+          Delete Post
+        </button>
+      );
+    } else {
+      deleteButton = null;
+    }
+    return deleteButton;
+  }
+
   render(){
     return (
       <div className="post-show-container">
@@ -33,9 +47,7 @@ class PostShow extends React.Component {
 
             <div className="post-show-username">{this.props.author.username}</div>
 
-            <button className="post-show-delete" onClick={this.handlePostDelete}>
-              <i className="fas fa-times fa-lg"></i>
-            </button>
+            {this.PostDeleteButton()}
           </div>
 
           <div className='post-show-scroll-container'>
@@ -61,9 +73,12 @@ class PostShow extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   let post = state.entities.posts[ownProps.postId];
   let author = state.entities.users[post.author_id];
+  let currentUserId = state.session.id;
+
   return({
     post,
-    author
+    author,
+    currentUserId
   });
 };
 
