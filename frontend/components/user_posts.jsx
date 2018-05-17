@@ -25,8 +25,11 @@ class UserPosts extends React.Component {
           return (
             <button className='user-posts-button' key={post.id} onClick={this.handleModal({type: "post", id: post.id})}>
               <div className='user-posts-hover'>
-                <i className="far fa-comment"></i>
+                <i className="fas fa-comment"></i>
                 <div className="user-posts-comments-count">{this.numberOfComments(post)}</div>
+
+                <i className="fas fa-heart"></i>
+                <div className="user-posts-likes-count">{post.liker_ids.length}</div>
               </div>
               <img key={post.id} className='user-posts-img' src={post.image_url}/>
             </button>

@@ -5,12 +5,17 @@ import { connect } from 'react-redux';
 import CommentIndex from './comment_index';
 import CommentForm from './comment_form';
 import { deletePost } from '../actions/posts_actions';
+import { createLike, deleteLike } from '../actions/likes_actions';
 import { closeModal } from '../actions/modal_actions';
 
 class PostShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      liked: props.liked
+    };
     this.handlePostDelete = this.handlePostDelete.bind(this);
+    this.handleLike = this.handleLike.bind(this);
   }
 
   handlePostDelete(e){
@@ -30,6 +35,43 @@ class PostShow extends React.Component {
       deleteButton = null;
     }
     return deleteButton;
+  }
+
+  handleLike(e){
+    if (this.state.liked === false){
+      this.props.createLike(this.props.postId).then(() => {
+        this.setState({liked: true});
+      });
+    } else {
+      this.props.deleteLike(this.props.postId).then(() => {
+        this.setState({liked: false});
+      });
+    }
+  }
+
+  LikeButton(){
+    let like;
+    if (this.props.currentUserId !== null){
+      like = (
+        <button className={`post-show-like-button-${this.state.liked}`} onClick={this.handleLike}>
+          <i className="fas fa-heart fa-lg"></i>
+        </button>
+      );
+    } else {
+      like = null;
+    }
+    return like;
+  }
+
+  LikeCountWord(){
+    let count = this.props.likers.length;
+    let word;
+    if (count === 1) {
+      word = "like";
+    } else {
+      word = "likes";
+    }
+    return word;
   }
 
   render(){
@@ -61,6 +103,15 @@ class PostShow extends React.Component {
             </div>
           </div>
 
+          <div className='post-show-like'>
+            {this.LikeButton()}
+          </div>
+
+          <div className='post-show-like-count-container'>
+            <div className='post-show-like-count'>{this.props.likers.length}</div>
+            <div className='post-show-like-word'>{this.LikeCountWord()}</div>
+          </div>
+
           <div className="post-show-createdat">{this.props.post.created_at}</div>
 
           <CommentForm postId={this.props.postId}/>
@@ -74,17 +125,29 @@ const mapStateToProps = (state, ownProps) => {
   let post = state.entities.posts[ownProps.postId];
   let author = state.entities.users[post.author_id];
   let currentUserId = state.session.id;
+  let likers = post.liker_ids;
+  let liked;
+
+  if (likers.includes(currentUserId)) {
+    liked = true;
+  } else {
+    liked = false;
+  }
 
   return({
     post,
     author,
-    currentUserId
+    currentUserId,
+    liked,
+    likers
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
     deletePost: (postId) => dispatch(deletePost(postId)),
+    createLike: (postId) => dispatch(createLike(postId)),
+    deleteLike: (likeId) => dispatch(deleteLike(likeId)),
     closeModal: () => dispatch(closeModal())
   });
 };

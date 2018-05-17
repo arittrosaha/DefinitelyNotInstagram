@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'api/users/:id/posts', :to => 'api/posts#index'
   post 'api/posts/:id/likes', :to => 'api/posts#likes_create'
-  delete 'api/likes/:id', :to => 'api/posts#likes_destroy'
+  delete 'api/likes/:postId', :to => 'api/posts#likes_destroy'
 
   get 'api/posts/:id/comments', :to => 'api/comments#index'
   post 'api/posts/:id/comments', :to => 'api/comments#create'

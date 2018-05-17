@@ -54,7 +54,7 @@
 }
 
 .post-show-createdat {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: .2px;
   color: #999;
   border-bottom: 1px solid #efefef;
@@ -84,4 +84,23 @@
 
 .post-show-delete:active {
   opacity: .7;
+}
+
+.post-show-like {
+  padding: 13px 0 8px 0 ;
+}
+
+.post-show-like-button-true {
+  color: red;
+}
+
+.post-show-like-count-container {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: #262626;
+}
+
+.post-show-like-count {
+  padding-right: 5px;
 }

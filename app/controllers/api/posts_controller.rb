@@ -40,6 +40,19 @@ class Api::PostsController < ApplicationController
     end
   end
 
+  def likes_create
+    @likable = Post.find(params[:id])
+    @like = @likable.likes.build(liker_id: current_user.id)
+    @like.save
+    render 'api/likes/show'
+  end
+
+  def likes_destroy
+    @like = current_user.likes.find_by(likable_id: params[:postId], likable_type: "Post")
+    @like.destroy
+    render 'api/likes/show'
+  end
+
   private
 
   def posts_params
