@@ -6,6 +6,9 @@
 
 .post-show-details {
   padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .post-show-author {
@@ -28,7 +31,12 @@
   border-radius: 50%;
 }
 
+.post-show-scroll-container {
+  flex-grow: 1;
+}
+
 .post-show-scroll {
+  height: 100%;
   padding: 12px 0;
   overflow: auto;
   border-bottom: 1px solid #efefef;
@@ -54,4 +62,10 @@
 
 .post-show-img-container {
   width: 100%;
+}
+
+.post-show-delete {
+  position: absolute;
+  left: 94%;
+  top: 2%;
 }

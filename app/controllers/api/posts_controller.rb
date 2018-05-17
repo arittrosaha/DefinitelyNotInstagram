@@ -31,7 +31,7 @@ class Api::PostsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @post = current_user.posts.find(params[:id])
     if @post.destroy
       head :no_content

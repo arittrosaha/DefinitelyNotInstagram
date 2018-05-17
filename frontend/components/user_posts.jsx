@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-// import { fetchPosts } from '../actions/posts_actions';
 import { openModal } from '../actions/modal_actions';
 
 class UserPosts extends React.Component {
@@ -10,20 +9,25 @@ class UserPosts extends React.Component {
     super(props);
   }
 
-  // componentDidMount(){
-  //   this.props.fetchPosts(this.props.userId);
-  // }
-
   handleModal(modal) {
     return () => this.props.openModal(modal) ;
+  }
+
+  numberOfComments(post){
+    return this.props.comments.filter( comment => (comment.post_id === post.id)).length;
   }
 
   posts(){
     return (
       <div className='user-posts'>
         {this.props.posts.reverse().map((post) => {
+
           return (
             <button className='user-posts-button' key={post.id} onClick={this.handleModal({type: "post", id: post.id})}>
+              <div className='user-posts-hover'>
+                <i className="far fa-comment"></i>
+                <div className="user-posts-comments-count">{this.numberOfComments(post)}</div>
+              </div>
               <img key={post.id} className='user-posts-img' src={post.image_url}/>
             </button>
           );
@@ -42,16 +46,17 @@ class UserPosts extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   const postsInState = Object.values(state.entities.posts);
   const posts = postsInState.filter(post => post.author_id === Number(ownProps.match.params.userId));
+  const comments = Object.values(state.entities.comments);
 
   return ({
     posts,
-    userId: ownProps.match.params.userId
+    userId: ownProps.match.params.userId,
+    comments
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    // fetchPosts: (userId) => dispatch(fetchPosts(userId)),
     openModal: (modal) => dispatch(openModal(modal))
   });
 };

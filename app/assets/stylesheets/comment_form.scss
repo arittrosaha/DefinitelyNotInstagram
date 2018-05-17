@@ -1,0 +1,14 @@
+.comment-errors {
+  color: red;
+  font-family: sans-serif;
+  font-size: 14px;
+  width: 241px;
+}
+.comment-errors > li {
+  list-style: circle;
+}
+
+.comment-textarea {
+  margin: 10px 0;
+  width: 100%;
+}

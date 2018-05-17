@@ -8,6 +8,9 @@
   height: 279px;
   margin-right: 28px;
   margin-bottom: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-posts-button:nth-child(3n+3) {
@@ -17,4 +20,28 @@
 .user-posts-img {
   width: 100%;
   height: 100%;
+}
+
+.user-posts-hover {
+  position: absolute;
+  z-index: 1;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  width: inherit;
+  height: inherit;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.user-posts-hover:hover {
+  background-color: rgba(38,38,38, 0.5);
+  opacity: 1;
+}
+
+.user-posts-comments-count{
+  margin-left: 5px;
 }
