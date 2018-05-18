@@ -31,6 +31,17 @@ class User extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    if (this.props.match.params.userId !== nextProps.match.params.userId) {
+      this.props.fetchUser(nextProps.match.params.userId);
+      this.props.fetchPosts(nextProps.match.params.userId).then(() => {
+        this.props.posts.forEach( post => {
+          this.props.fetchComments(post.id);
+        });
+      });
+    }
+  }
+
   currentUserAvatar() {
     let avatar;
     if (this.props.currentUserId === this.props.user.id) {
