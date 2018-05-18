@@ -5,6 +5,8 @@ import NavBar from './navbar';
 import User from './user';
 import UserEdit from './user_edit';
 import Feed from './feed';
+import PostImage from './post_image';
+
 
 
 const Main = () => {
@@ -12,7 +14,8 @@ const Main = () => {
     <div className="main">
       <NavBar />
       <Switch>
-        <Route exact path='/users/edit' component={UserEdit} />
+        <Route path='/users/edit' component={UserEdit} />
+        <Route path="/users/edit/posts/new" component={PostImage}></Route>
         <Route exact path='/users/:userId' component={User} />
         <Route component={Feed} />
       </Switch>
