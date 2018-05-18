@@ -26,13 +26,13 @@ class Feed extends React.Component {
       return (
         <div className='feed-container'>
           <div className='feed'>
-            {this.props.posts.reverse().map( post => {
+            {this.props.posts.slice().reverse().map( post => {
               return (
                 <FeedPostShow key={post.id} postId={post.id} />
               );
             })}
           </div>
-          
+
           <div className='feed-side-bar'>
             <div className='feed-currentUser-avatar-container'>
               <img className='feed-currentUser-avatar-img' src={this.props.currentUser.avatar_url} />
