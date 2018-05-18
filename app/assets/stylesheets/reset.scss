@@ -48,6 +48,17 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+#root {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
 .main {
   width: 100%;
+}
+
+body {
+  background-color: #fafafa;
 }

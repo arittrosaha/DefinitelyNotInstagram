@@ -4,6 +4,7 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 import NavBar from './navbar';
 import User from './user';
 import UserEdit from './user_edit';
+import Feed from './feed';
 
 
 const Main = () => {
@@ -11,8 +12,9 @@ const Main = () => {
     <div className="main">
       <NavBar />
       <Switch>
-        <Route path='/users/edit' component={UserEdit} />
-        <Route path='/users/:userId' component={User} />
+        <Route exact path='/users/edit' component={UserEdit} />
+        <Route exact path='/users/:userId' component={User} />
+        <Route component={Feed} />
       </Switch>
     </div>
   );

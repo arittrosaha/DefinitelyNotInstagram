@@ -1,0 +1,159 @@
+.feed-container {
+  display: flex;
+  padding-top: 60px;
+  max-width: 935px;
+  margin: 0 auto;
+  display: flex;
+  font-family: sans-serif;
+  justify-content: space-between;
+}
+
+.feed{
+  display: flex;
+  flex-direction: column;
+}
+
+.feed-post {
+  display: flex;
+  background-color: #fff;
+  width: 614px;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  margin-bottom: 60px;
+}
+
+.feed-details {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+}
+
+.feed-author {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #efefef;
+}
+
+.feed-avatar-container {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.feed-avatar {
+  border-radius: 50%;
+}
+
+.feed-scroll-container {
+  height: 100px;
+}
+
+.feed-scroll {
+  height: 100%;
+  padding: 12px 0;
+  overflow: auto;
+}
+
+.feed-username {
+  display: inline;
+  margin-right: 6px;
+  font-weight: 600;
+}
+
+.feed-caption {
+  display: inline;
+}
+
+.feed-createdat {
+  font-size: 11px;
+  letter-spacing: .2px;
+  color: #999;
+  padding: 4px 0;
+  border-bottom: 1px solid #efefef;
+}
+
+.feed-img-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.feed-delete {
+  background-color: black;
+  color: white;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 26px;
+  font-family: sans-serif;
+  text-align: center;
+  padding: 0 5px;
+  position: absolute;
+  left: 85%;
+  top: 1.5%;
+}
+
+.feed-delete:active {
+  opacity: .7;
+}
+
+.feed-like {
+  padding: 13px 0 8px 0 ;
+}
+
+.feed-like-button-true {
+  color: red;
+}
+
+.feed-like-count-container {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: #262626;
+}
+
+.feed-like-count {
+  padding-right: 5px;
+}
+
+.feed-side-bar {
+  height: 62px;
+  width: 293px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 12px;
+  position: sticky;
+  top: 110px;
+}
+
+.feed-currentUser-avatar-container{
+  height: 60px;
+  width: 60px;
+}
+
+.feed-currentUser-avatar-img {
+  border-radius: 50%;
+}
+
+.feed-currentUser-username {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.feed-currentUser-fullname{
+  font-size: 12px;
+  color: #999;
+  line-height: 16px;
+}
+
+.feed-currentUser-details {
+  margin-left: 14px;
+}
