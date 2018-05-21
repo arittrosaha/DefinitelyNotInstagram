@@ -11,7 +11,7 @@ class CommentIndex extends React.Component {
 
   componentDidMount() {
     this.props.comments.forEach( comment => {
-      if (this.props.users[comment.author_id] === null) {
+      if (this.props.users[comment.author_id] === undefined) {
         this.props.fetchUser(comment.author_id);
       }
     });
