@@ -9,9 +9,9 @@ const commentsReducer = (initialState = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return action.response.comments;
+      return merge({}, initialState, action.response.comments);
     case RECEIVE_USER:
-      return action.response.comments;
+      return merge({}, initialState, action.response.comments);
     case RECEIVE_COMMENTS:
       return merge({}, initialState, action.comments);
     case RECEIVE_COMMENT:

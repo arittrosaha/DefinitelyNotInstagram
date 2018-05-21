@@ -12,11 +12,11 @@ const postsReducer = (initialState = {}, action) => {
 
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return action.response.posts;
+      return merge({}, initialState, action.response.posts);
     case RECEIVE_USER:
-      return action.response.posts;
+      return merge({}, initialState, action.response.posts);
     case RECEIVE_POSTS:
-      return action.posts;
+      return merge({}, initialState, action.posts);
     case RECEIVE_POST:
       return merge({}, initialState, {[action.post.id]: action.post});
     case REMOVE_POST:
