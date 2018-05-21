@@ -1,4 +1,4 @@
-export const updateUser = (user) => {
+export const updateCurrentUser = (user) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${user.id}`,
@@ -6,7 +6,7 @@ export const updateUser = (user) => {
   });
 };
 
-export const updateUserAvatar = (user) => {
+export const updateCurrentUserAvatar = (user) => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/users/${user.id}`,

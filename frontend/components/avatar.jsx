@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { closeModal } from '../actions/modal_actions';
-import { updateUserAvatar } from '../actions/users_actions';
+import { updateCurrentUserAvatar } from '../actions/users_actions';
 
 class Avatar extends React.Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class Avatar extends React.Component {
     if (file) {
       formData.append("user[avatar]", file);
     }
-    this.props.updateUserAvatar(formData).then(this.props.closeModal);
+    this.props.updateCurrentUserAvatar(formData).then(this.props.closeModal);
   }
 
   render () {
@@ -61,7 +61,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    updateUserAvatar: (user) => dispatch(updateUserAvatar(user)),
+    updateCurrentUserAvatar: (formData) => dispatch(updateCurrentUserAvatar(formData)),
     closeModal: () => dispatch(closeModal())
   });
 };

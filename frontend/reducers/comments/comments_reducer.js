@@ -1,11 +1,17 @@
 import merge from 'lodash/merge';
 
 import { RECEIVE_COMMENTS, RECEIVE_COMMENT, REMOVE_COMMENT } from '../../actions/comments_actions';
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+import { RECEIVE_USER } from '../../actions/users_actions';
 
 const commentsReducer = (initialState = {}, action) => {
   Object.freeze(initialState);
 
   switch(action.type) {
+    case RECEIVE_CURRENT_USER:
+      return action.response.comments;
+    case RECEIVE_USER:
+      return action.response.comments;
     case RECEIVE_COMMENTS:
       return merge({}, initialState, action.comments);
     case RECEIVE_COMMENT:

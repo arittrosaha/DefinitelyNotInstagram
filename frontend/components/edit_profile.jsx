@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateUser } from '../actions/users_actions';
+import { updateCurrentUser } from '../actions/users_actions';
 
 
 class EditProfile extends React.Component {
@@ -16,7 +16,7 @@ class EditProfile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault;
-    this.props.updateUser(this.state.user);
+    this.props.updateCurrentUser(this.state.user);
   }
 
   handleChange(property) {
@@ -103,7 +103,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    updateUser: (user) => dispatch(updateUser(user))
+    updateCurrentUser: (user) => dispatch(updateCurrentUser(user))
   });
 };
 

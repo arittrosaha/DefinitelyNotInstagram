@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { fetchPosts } from '../actions/posts_actions';
-import { fetchComments } from '../actions/comments_actions';
-
+import { fetchUser } from '../actions/users_actions';
 import FeedPostShow from './feed_post_show';
 
 
@@ -13,13 +11,10 @@ class Feed extends React.Component {
   }
 
   componentDidMount(){
-    this.props.fetchPosts(this.props.currentUserId).then(() => {
-      this.props.posts.forEach( post => {
-        this.props.fetchComments(post.id);
-      });
-    });
+    if (this.props.posts.length === 0) {
+      this.props.fetchUser(this.props.currentUserId);
+    }
   }
-
 
   Posts(){
     if (this.props.posts.length !== 0) {
@@ -71,8 +66,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    fetchPosts: (userId) => dispatch(fetchPosts(userId)),
-    fetchComments: (postId) => dispatch(fetchComments(postId))
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   });
 };
 

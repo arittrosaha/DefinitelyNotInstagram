@@ -4,8 +4,6 @@ import { Route, Link } from 'react-router-dom';
 
 import { openModal } from '../actions/modal_actions';
 import { fetchUser } from '../actions/users_actions';
-import { fetchPosts } from '../actions/posts_actions';
-import { fetchComments } from '../actions/comments_actions';
 
 import Modal from './modal';
 import UserPosts from './user_posts';
@@ -23,22 +21,12 @@ class User extends React.Component {
   componentDidMount(){
     if (this.props.currentUserId !== this.props.match.params.userId) {
       this.props.fetchUser(this.props.match.params.userId);
-      this.props.fetchPosts(this.props.match.params.userId).then(() => {
-        this.props.posts.forEach( post => {
-          this.props.fetchComments(post.id);
-        });
-      });
     }
   }
 
   componentWillReceiveProps(nextProps){
     if (this.props.match.params.userId !== nextProps.match.params.userId) {
       this.props.fetchUser(nextProps.match.params.userId);
-      this.props.fetchPosts(nextProps.match.params.userId).then(() => {
-        this.props.posts.forEach( post => {
-          this.props.fetchComments(post.id);
-        });
-      });
     }
   }
 
@@ -147,7 +135,6 @@ const mapStateToProps = (state, ownProps) => {
   return ({
     user: user,
     currentUserId: state.session.id,
-    posts,
     postsCount
   });
 };
@@ -155,9 +142,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     openModal: (modal) => dispatch(openModal(modal)),
-    fetchUser: (userId) => dispatch(fetchUser(userId)),
-    fetchPosts: (userId) => dispatch(fetchPosts(userId)),
-    fetchComments: (postId) => dispatch(fetchComments(postId))
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   });
 };
 

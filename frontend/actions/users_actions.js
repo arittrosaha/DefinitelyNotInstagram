@@ -12,32 +12,32 @@ export const receiveUsersErrors = (errors) => {
   });
 };
 
-export const receiveUser = (user) => {
+export const receiveUser = (response) => {
   return ({
     type: RECEIVE_USER,
-    user
+    response
   });
 };
 
-export const updateUser = (user) => (dispatch) => {
-  return UserApiUtil.updateUser(user).then( currentUser => {
-    dispatch(receiveCurrentUser(currentUser));
+export const updateCurrentUser = (user) => (dispatch) => {
+  return UserApiUtil.updateCurrentUser(user).then( response => {
+    dispatch(receiveCurrentUser(response));
   }, errors => {
     dispatch(receiveUsersErrors(errors.responseJSON));
   });
 };
 
 export const fetchUser = (userId) => (dispatch) => {
-  return UserApiUtil.fetchUser(userId).then( user => {
-    dispatch(receiveUser(user));
+  return UserApiUtil.fetchUser(userId).then( response => {
+    dispatch(receiveUser(response));
   }, errors => {
     dispatch(receiveUsersErrors(errors.responseJSON));
   });
 };
 
-export const updateUserAvatar = (user) => (dispatch) => {
-  return UserApiUtil.updateUserAvatar(user).then( currentUser => {
-    dispatch(receiveCurrentUser(currentUser));
+export const updateCurrentUserAvatar = (formData) => (dispatch) => {
+  return UserApiUtil.updateCurrentUserAvatar(formData).then( response => {
+    dispatch(receiveCurrentUser(response));
   }, errors => {
     dispatch(receiveUsersErrors(errors.responseJSON));
   });

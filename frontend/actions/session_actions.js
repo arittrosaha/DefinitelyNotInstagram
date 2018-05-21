@@ -5,10 +5,10 @@ export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const SESSION_TYPE = 'SESSION_TYPE';
 
-export const receiveCurrentUser = (currentUser) => {
+export const receiveCurrentUser = (response) => {
   return ({
     type: RECEIVE_CURRENT_USER,
-    currentUser
+    response
   });
 };
 
@@ -35,8 +35,8 @@ export const sessionType = (form) => {
 export const signup = (user) => {
   return (dispatch) => {
     return SessionApiUtil.signup(user).then(
-      ((currentUser) => {
-        dispatch(receiveCurrentUser(currentUser));
+      ((response) => {
+        dispatch(receiveCurrentUser(response));
       }), ((errors) => {
         dispatch(receiveSessionErrors(errors.responseJSON));
       })
@@ -45,8 +45,8 @@ export const signup = (user) => {
 };
 
 export const login = (user) => (dispatch) => {
-  return SessionApiUtil.login(user).then( currentUser => {
-    dispatch(receiveCurrentUser(currentUser));
+  return SessionApiUtil.login(user).then( response => {
+    dispatch(receiveCurrentUser(response));
   }, errors => {
     dispatch(receiveSessionErrors(errors.responseJSON));
   });

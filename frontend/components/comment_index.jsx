@@ -2,10 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { deleteComment } from '../actions/comments_actions';
+import { fetchUser } from '../actions/users_actions';
 
 class CommentIndex extends React.Component {
   constructor(props){
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.comments.forEach( comment => {
+      if (this.props.users[comment.author_id] === null) {
+        this.props.fetchUser(comment.author_id);
+      }
+    });
   }
 
   handleDeleteComment(commentId){
@@ -38,7 +47,7 @@ class CommentIndex extends React.Component {
         {this.props.comments.map((comment) => {
           return (
             <li className='comment-li' key={comment.id}>
-              <div className="comment-author">{this.props.users[comment.author_id].username}</div>
+              <div className="comment-author">{this.props.users[comment.author_id] ? this.props.users[comment.author_id].username : null}</div>
               <div className='comment-body'>{comment.body}</div>
               {this.deleteComment(comment)}
             </li>
@@ -75,7 +84,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    deleteComment: (commentId) => dispatch(deleteComment(commentId))
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+    fetchUser: (userId) => dispatch(fetchUser(userId))
   });
 };
 

@@ -2,6 +2,8 @@ import merge from 'lodash/merge';
 
 import { RECEIVE_POSTS, RECEIVE_POST, REMOVE_POST } from '../../actions/posts_actions';
 import { RECEIVE_LIKE, REMOVE_LIKE } from '../../actions/likes_actions';
+import { RECEIVE_CURRENT_USER } from '../../actions/session_actions';
+import { RECEIVE_USER } from '../../actions/users_actions';
 
 const postsReducer = (initialState = {}, action) => {
   Object.freeze(initialState);
@@ -9,6 +11,10 @@ const postsReducer = (initialState = {}, action) => {
   let likedPost;
 
   switch(action.type) {
+    case RECEIVE_CURRENT_USER:
+      return action.response.posts;
+    case RECEIVE_USER:
+      return action.response.posts;
     case RECEIVE_POSTS:
       return action.posts;
     case RECEIVE_POST:
