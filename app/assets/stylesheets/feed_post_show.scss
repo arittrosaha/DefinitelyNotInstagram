@@ -32,11 +32,16 @@
   justify-content: space-between;
 }
 
-.feed-author {
+.feed-author-main {
   display: flex;
   align-items: center;
   padding: 16px;
   border-bottom: 1px solid #efefef;
+}
+
+.feed-author {
+  display: flex;
+  align-items: center;
 }
 
 .feed-avatar-container {

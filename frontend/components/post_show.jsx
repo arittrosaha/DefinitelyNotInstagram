@@ -12,7 +12,8 @@ class PostShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      liked: props.liked
+      liked: props.liked,
+      likesButton: 'inactive'
     };
     this.handlePostDelete = this.handlePostDelete.bind(this);
     this.handleLike = this.handleLike.bind(this);

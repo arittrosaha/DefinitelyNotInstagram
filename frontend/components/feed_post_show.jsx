@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route, Link } from 'react-router-dom';
 
 import CommentIndex from './comment_index';
 import CommentForm from './comment_form';
@@ -75,12 +76,14 @@ class FeedPostShow extends React.Component {
     return(
       <div className="feed-post">
 
-        <div className="feed-author">
-          <div className="feed-avatar-container">
-            <img className="feed-avatar" src={this.props.author.avatar_url} />
-          </div>
+        <div className="feed-author-main">
+          <Link className="feed-author" to={`/users/${this.props.author.id}`}>
+            <div className="feed-avatar-container">
+              <img className="feed-avatar" src={this.props.author.avatar_url} />
+            </div>
 
-          <div className="feed-username">{this.props.author.username}</div>
+            <div className="feed-username">{this.props.author.username}</div>
+          </Link>
 
           {this.PostDeleteButton()}
         </div>

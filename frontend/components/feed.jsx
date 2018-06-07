@@ -54,8 +54,16 @@ class Feed extends React.Component {
 
 const mapStateToProps = (state) => {
   let currentUserId = state.session.id;
-  let posts = Object.values(state.entities.posts);
   let currentUser = state.entities.users[currentUserId];
+  let feedIds = currentUser.following_ids.slice();
+  feedIds.push(currentUserId);
+
+  let posts = Object.values(state.entities.posts) || [];
+
+
+  posts = posts.filter( post => {
+    return feedIds.includes(post.author_id);
+  });
 
   return({
     currentUserId,
