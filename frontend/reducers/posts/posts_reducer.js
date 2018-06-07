@@ -9,12 +9,17 @@ const postsReducer = (initialState = {}, action) => {
   Object.freeze(initialState);
   let newState;
   let likedPost;
+  let posts;
 
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, initialState, action.response.posts);
+      posts = action.response.posts || {};
+      return merge({}, initialState, posts);
+    // return merge({}, initialState, action.response.posts);
     case RECEIVE_USER:
-      return merge({}, initialState, action.response.posts);
+      posts = action.response.posts || {};
+      return merge({}, initialState, posts);
+      // return merge({}, initialState, action.response.posts);
     case RECEIVE_POSTS:
       return merge({}, initialState, action.posts);
     case RECEIVE_POST:

@@ -137,7 +137,7 @@ const mapStateToProps = (state, ownProps) => {
     author,
     currentUserId,
     liked,
-    likers
+    likers,
   });
 };
 

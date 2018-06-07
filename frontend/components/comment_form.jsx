@@ -16,7 +16,7 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(e){
-    e.preventDefault;
+    e.preventDefault();
     this.props.createComment(this.state);
     this.setState({body: ''});
   }
@@ -26,29 +26,16 @@ class CommentForm extends React.Component {
   }
 
   handleKey(e){
-    if (e.keyCode === 13 && e.shiftKey === false) {
+    if (e.keyCode === 13 && e.shiftKey === false && this.state.body !== '') {
       this.handleSubmit(e);
     }
-  }
 
-  renderErrors(){
-    return (
-      <ul className='comment-errors'>
-        {this.props.errors.map((error, idx) => {
-          return (
-            <li key={`error-${idx}`}>
-              {`${error}!`}
-            </li>
-          );
-        })}
-      </ul>
-    );
+    if (e.keyCode === 13) e.preventDefault();
   }
 
   render(){
     return(
       <form className='comment-form'>
-        {this.renderErrors()}
         <textarea onKeyDown={this.handleKey} className='comment-textarea' onChange={this.handleChange} value={this.state.body} placeholder="Add a comment..."/>
       </form>
     );

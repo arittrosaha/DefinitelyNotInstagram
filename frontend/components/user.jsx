@@ -8,10 +8,14 @@ import { fetchUser } from '../actions/users_actions';
 import Modal from './modal';
 import UserPosts from './user_posts';
 
+import { createFollow } from '../actions/follows_actions';
+import { deleteFollow } from '../actions/follows_actions';
+
 
 class User extends React.Component {
   constructor(props) {
     super(props);
+    this.handleFollow = this.handleFollow.bind(this);
   }
 
   handleModal(modal) {
@@ -44,18 +48,46 @@ class User extends React.Component {
     return avatar;
   }
 
-  currentUserEdit(){
-    let edit;
+  currentUserButton(){
+    let button;
     if (this.props.currentUserId === this.props.user.id) {
-      edit = (
+      button = (
         <Link className="user-edit-profile" to={`/users/edit`}>
           <div>Edit Profile & Post Images</div>
         </Link>
       );
+    } else if (this.props.currentUserId !== null) {
+      button = this.followButton();
     } else {
-      edit = null;
+      button = null;
     }
-    return edit;
+    return button;
+  }
+
+  followButton () {
+    let follow;
+    if (this.props.followed === true) {
+      follow = (
+        <button className={`user-follow-button-${this.props.followed}`} onClick={this.handleFollow}>
+          Following
+        </button>
+      );
+    } else if (this.props.followed === false) {
+      follow = (
+        <button className={`user-follow-button-${this.props.followed}`} onClick={this.handleFollow}>
+          Follow
+        </button>
+      );
+    }
+    return follow;
+  }
+
+  handleFollow () {
+    if (this.props.followed === false){
+      this.props.createFollow(this.props.user.id);
+    } else {
+      this.props.deleteFollow(this.props.user.id);
+    }
   }
 
   currentUserGear(){
@@ -88,15 +120,23 @@ class User extends React.Component {
             <div className='user-first'>
               <h1 className='user-username'>{this.props.user.username}</h1>
 
-              {this.currentUserEdit()}
+              {this.currentUserButton()}
 
               {this.currentUserGear()}
             </div>
 
             <ul className="user-second">
               <li className='user-second-li'>
-                <div className='user-post-count'>{this.props.postsCount}</div>
-                <span className='user-post-str'>posts</span>
+                <div className='user-second-count'>{this.props.postsCount}</div>
+                <span className='user-second-str'>posts</span>
+              </li>
+              <li className='user-second-li'>
+                <div className='user-second-count'>{this.props.followersCount}</div>
+                <span className='user-second-str'>followers</span>
+              </li>
+              <li className='user-second-li'>
+                <div className='user-second-count'>{this.props.followingsCount}</div>
+                <span className='user-second-str'>following</span>
               </li>
             </ul>
 
@@ -128,21 +168,41 @@ const mapStateToProps = (state, ownProps) => {
     user = state.entities.users[ownProps.match.params.userId];
   }
 
+  let followers = user.follower_ids || [];
+  let followings = user.following_ids || [];
+  let followed;
+
+  let currentUserId = state.session.id;
+
+  if (followers.includes(currentUserId)) {
+    followed = true;
+  } else {
+    followed = false;
+  }
+
+  const followersCount = followers.length;
+  const followingsCount = followings.length;
+
   const postsInState = Object.values(state.entities.posts);
   const posts = postsInState.filter(post => post.author_id === Number(ownProps.match.params.userId));
   const postsCount = posts.length;
 
   return ({
-    user: user,
-    currentUserId: state.session.id,
-    postsCount
+    user,
+    currentUserId,
+    postsCount,
+    followersCount,
+    followingsCount,
+    followed
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
     openModal: (modal) => dispatch(openModal(modal)),
-    fetchUser: (userId) => dispatch(fetchUser(userId))
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
+    createFollow: (userId) => dispatch(createFollow(userId)),
+    deleteFollow: (userId) => dispatch(deleteFollow(userId)),
   });
 };
 

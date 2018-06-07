@@ -7,11 +7,17 @@ import { RECEIVE_USER } from '../../actions/users_actions';
 const commentsReducer = (initialState = {}, action) => {
   Object.freeze(initialState);
 
+  let comments;
+
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, initialState, action.response.comments);
+      comments = action.response.comments || {};
+      return merge({}, initialState, comments);
+      // return merge({}, initialState, action.response.comments);
     case RECEIVE_USER:
-      return merge({}, initialState, action.response.comments);
+      comments = action.response.comments || {};
+      return merge({}, initialState, comments);
+      // return merge({}, initialState, action.response.comments);
     case RECEIVE_COMMENTS:
       return merge({}, initialState, action.comments);
     case RECEIVE_COMMENT:

@@ -34,9 +34,22 @@ class Api::UsersController < ApplicationController
   end
 
   def follows_create
+    @follow = Follow.new(followee_id: params[:id], follower_id: current_user.id.to_s)
+    # @follow.follower_id = current_user.id
+    if @follow.save
+      render 'api/follows/show'
+    else
+      render json: @follow.errors.full_messages, status: 422
+    end
   end
 
   def follows_destroy
+    @follow = current_user.followees_ids.find_by(followee_id: params[:id], follower_id: current_user.id.to_s)
+    if @follow.destroy
+      render 'api/follows/show'
+    else
+      render json: @follow.errors.full_messages, status: 422
+    end
   end
 
   private

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   post 'api/users/:id/follows', :to => 'api/users#follows_create'
-  delete 'api/follows/:id', :to => 'api/users#follows_destroy'
+  delete 'api/users/:id/follows', :to => 'api/users#follows_destroy'
 
   get 'api/users/:id/posts', :to => 'api/posts#index'
   post 'api/posts/:id/likes', :to => 'api/posts#likes_create'

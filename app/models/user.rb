@@ -21,13 +21,21 @@ class User < ApplicationRecord
   has_many :likes,
     foreign_key: :liker_id
 
-  # has_many :followers,
-  #   class_name: 'follows',
-  #   foreign_key: :followee_id
-  #
-  # has_many :followees,
-  #   class_name: 'follows',
-  #   foreign_key: :follower_id
+  has_many :followers_ids,
+    class_name: 'Follow',
+    foreign_key: :followee_id
+
+  has_many :followers,
+    through: :followers_ids,
+    source: :follower
+
+  has_many :followees_ids,
+    class_name: 'Follow',
+    foreign_key: :follower_id
+
+  has_many :followings,
+    through: :followees_ids,
+    source: :followee
 
   def self.find_by_credentials (username, password)
     user = User.find_by(username: username)

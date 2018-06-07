@@ -10,13 +10,13 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault;
+    e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.formAction(user).then(() => this.props.history.push('/'));
   }
 
   handleDemoSubmit(e){
-    e.preventDefault;
+    e.preventDefault();
     this.props.loginDemo(this.props.demoUser).then(() => this.props.history.push('/'));
   }
 

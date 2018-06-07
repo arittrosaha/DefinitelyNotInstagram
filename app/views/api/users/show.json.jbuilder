@@ -8,6 +8,13 @@ json.posts do
       json.partial! 'api/posts/post', post: post
     end
   end
+  @user.followings.each do |user|
+    user.posts.each do |post|
+      json.set! post.id do
+        json.partial! 'api/posts/post', post: post
+      end
+    end
+  end
 end
 
 json.comments do
@@ -19,3 +26,28 @@ json.comments do
     end
   end
 end
+
+
+json.followers do
+  @user.followers.each do |user|
+    json.set! user.id do
+      json.partial! 'api/users/user', user: user
+    end
+  end
+end
+
+# if @user.followers.length == 0
+#   json.followers({})
+# end
+
+json.followings do
+  @user.followings.each do |user|
+    json.set! user.id do
+      json.partial! 'api/users/user', user: user
+    end
+  end
+end
+
+# if @user.followings.length == 0
+#   json.followers({})
+# end

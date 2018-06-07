@@ -125,7 +125,7 @@ const mapStateToProps = (state, ownProps) => {
   let post = state.entities.posts[ownProps.postId];
   let author = state.entities.users[post.author_id];
   let currentUserId = state.session.id;
-  let likers = post.liker_ids;
+  let likers = post.liker_ids || [];
   let liked;
 
   if (likers.includes(currentUserId)) {

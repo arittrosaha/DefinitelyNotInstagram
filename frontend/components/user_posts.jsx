@@ -21,7 +21,6 @@ class UserPosts extends React.Component {
     return (
       <div className='user-posts'>
         {this.props.posts.slice().reverse().map((post) => {
-
           return (
             <button className='user-posts-button' key={post.id} onClick={this.handleModal({type: "post", id: post.id})}>
               <div className='user-posts-hover'>
