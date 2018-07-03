@@ -7,6 +7,14 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  has_many :commenters,
+    through: :comments,
+    source: :author
+
   has_many :likes, as: :likable
+
+  has_many :likers,
+    through: :likes,
+    source: :liker
 
 end

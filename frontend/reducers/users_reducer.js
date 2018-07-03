@@ -10,31 +10,22 @@ import { REMOVE_FOLLOW } from '../actions/follows_actions';
 const usersReducer = (initialState = {}, action) => {
   Object.freeze(initialState);
   let newState;
-  let followers;
-  let followings;
+  let otherUsers;
   let follower;
   let followee;
 
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       newState = merge({}, initialState, {[action.response.user.id]: action.response.user});
-      followers = action.response.followers || {};
-      Object.values(followers).forEach((user) => {
-        newState[user.id] = user;
-      });
-      followings = action.response.followings || {};
-      Object.values(followings).forEach((user) => {
+      otherUsers = action.response.users || {};
+      Object.values(otherUsers).forEach((user) => {
         newState[user.id] = user;
       });
       return newState;
     case RECEIVE_USER:
       newState = merge({}, initialState, {[action.response.user.id]: action.response.user});
-      followers = action.response.followers || {};
-      Object.values(followers).forEach((user) => {
-        newState[user.id] = user;
-      });
-      followings = action.response.followings || {};
-      Object.values(followings).forEach((user) => {
+      otherUsers = action.response.users || {};
+      Object.values(otherUsers).forEach((user) => {
         newState[user.id] = user;
       });
       return newState;

@@ -2,6 +2,7 @@
   display: flex;
   background-color: #fff;
   min-width: 800px;
+  max-height: 600px;
 }
 
 .post-show-details {
@@ -30,10 +31,6 @@
 
 .post-show-avatar {
   border-radius: 50%;
-}
-
-.post-show-scroll-container {
-  height: 300px;
 }
 
 .post-show-scroll {
@@ -104,4 +101,50 @@
 
 .post-show-like-count {
   padding-right: 5px;
+}
+
+.likes-header {
+  width: 383px;
+  height: 44px;
+  padding-top: 14px;
+  display: flex;
+  justify-content: center;
+  border-bottom: solid 1px #dbdbdb;
+  font-weight: 600;
+  position: relative;
+}
+
+.likes-inactive-button {
+  position: relative;
+  top: -4px;
+  left: -192px;
+}
+
+.post-liker-avatar-container {
+  height: 30px;
+  width: 30px;
+  margin-right: 13px;
+}
+
+.post-liker-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+}
+
+.post-liker {
+  border-bottom: solid 1px #efefef;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.post-liker-username {
+  font-weight: 600;
+}
+
+.post-liker-fullname {
+  color: #999;
+  font-weight: 400;
 }
