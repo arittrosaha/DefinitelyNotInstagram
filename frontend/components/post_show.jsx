@@ -9,6 +9,7 @@ import { createLike, deleteLike } from '../actions/likes_actions';
 import { closeModal } from '../actions/modal_actions';
 import { createFollow } from '../actions/follows_actions';
 import { deleteFollow } from '../actions/follows_actions';
+import LikeIndex from './like_index';
 
 
 class PostShow extends React.Component {
@@ -22,7 +23,6 @@ class PostShow extends React.Component {
     this.handlePostDelete = this.handlePostDelete.bind(this);
     this.handleLike = this.handleLike.bind(this);
     this.handleLikes = this.handleLikes.bind(this);
-    this.handleLiker = this.handleLiker.bind(this);
   }
 
   componentDidMount() {
@@ -123,13 +123,6 @@ class PostShow extends React.Component {
     };
   }
 
-  handleLiker(likerId) {
-    return () => {
-      this.props.history.push(`/users/${likerId}`);
-      this.props.closeModal();
-    };
-  }
-
   sideBar() {
     let bar;
     if (this.state.likesButton === 'inactive'){
@@ -184,15 +177,7 @@ class PostShow extends React.Component {
           <ul className="post-show-scroll-container">
             {this.props.likers.slice().map( liker => {
               return (
-                <li className='post-liker' key={liker.id} onClick={this.handleLiker(liker.id)}>
-                  <div className="post-liker-avatar-container">
-                    <img className="post-liker-avatar" src={liker.avatar_url} />
-                  </div>
-                  <div className="post-liker-details">
-                    <div className="post-liker-username">{liker.username}</div>
-                    <div className="post-liker-fullname">{liker.full_name}</div>
-                  </div>
-                </li>
+                <LikeIndex liker={liker} key={liker.id}/>
               );
             })}
           </ul>
