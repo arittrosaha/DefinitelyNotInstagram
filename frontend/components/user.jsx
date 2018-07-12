@@ -38,7 +38,7 @@ class User extends React.Component {
     let avatar;
     if (this.props.currentUserId === this.props.user.id) {
       avatar = (
-        <button onClick={this.handleModal({type: "avatar"})}>
+        <button className="user-avatar-button" onClick={this.handleModal({type: "avatar"})}>
           <img className="user-avatar" src={this.props.user.avatar_url} />
         </button>
       );
