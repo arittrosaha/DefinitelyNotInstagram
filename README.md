@@ -18,7 +18,7 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 * Eager loaded associate user data, at time of log in, to minimize AJAX queries.
 * Integrated Paperclip gem for image uploading and stored uploads on AWS S3 while saving their references in PostgreSQL database.
 * Optimized code by creating reusable, DRY React components to improve maintainability and scalability.
-* Utilized Redux and jBuilder to store fetched data and send backend JSON response, respectively.
+* Utilized Redux and jBuilder to store fetched data and receive backend JSON response, respectively, in client side.
 
 
 ## Current Features
@@ -61,17 +61,32 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 
 ## Current Technologies
 #### [Backend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/app)
-* Ruby on Rails
-* Notable Gems:
-  * pg - PostgreSQL for database.
-  * bcrypt - For authentication to securely hash and salt user passwords.
-  * paperclip - For file uploading.
-    * Note - This gem has been depricated. In the near future, the app will be transitioned to Active Storage.
-  * jQuery Rails - For the use of ajax calls and respective promises.
-  * figaro - For integrating Heroku to host the application live.
-  * aws-sdk - For utilizing Amazon Web Service's(AWS) S3 for storing user profile picture and uploads in a scalable manner.
+
+The app was built using Ruby on Rails on the back end with a PostgreSQL database. Back end structure is RESTful and all the data requests use AJAX and are fulfilled with a JSON API. Associations are used to prefetch data in order to minimize SQL queries to the database.
+
+Languages:
+* Ruby
+* SQL
+
+Notable Gems:
+* rails - Ruby on Rails for a MVC backend
+* pg - PostgreSQL for database.
+* bcrypt - to securely hash and salt user passwords.
+* paperclip - for file uploading.
+  * Note - This gem has been depricated. In the near future, the app will be transitioned to Active Storage.
+* jQuery Rails - for the use of ajax calls and respective promises.
+* aws-sdk - for utilizing Amazon Web Service's(AWS) S3 for storing user profile picture and uploads in a scalable manner.
 
 #### [Frontend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/frontend)
+
+The front end is built completely in React.js and in conjunction with Redux clientside storage. React's virtual DOM allows and diffing algorithm for lightning-quick and efficient rerendering without requiring new pages to be sent from the server. Even modals appear/disappear using React rather than toggling CSS display properties.
+
+Languages:
+* JavaScript ES6
+* HTML5
+* CSS3
+
+Notable npm packages:
 * React and other relevant React npm packages.
 * Redux and other relevant Redux npm packages.
 * Webpack and other relevent Webpack npm packages.
