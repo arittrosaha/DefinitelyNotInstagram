@@ -23,6 +23,7 @@
 #### Authentication / Landing page
 * Sign up for a new account with a email, name, username and password.
 * Log in to their account with their username and password.
+* Log in with a demo user account.
 * Receive errors for the following issues:
   * Password length is not greater or equal to six characters.
   * One of the field is missing.
@@ -60,7 +61,7 @@
 * See the number of followers and followings of a user in their profile page.
 
 ## Current Technologies
-#### Backend
+#### [Backend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/app)
 * Ruby on Rails
 * Notable Gems:
   * pg - PostgreSQL for database.
@@ -71,7 +72,7 @@
   * figaro - For integrating Heroku to host the application live.
   * aws-sdk - For utilizing Amazon Web Service's(AWS) S3 for storing user profile picture and uploads in a scalable manner.
 
-#### Frontend
+#### [Frontend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/frontend)
 * React and other relevant React npm packages.
 * Redux and other relevant Redux npm packages.
 * Webpack and other relevent Webpack npm packages.
