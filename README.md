@@ -57,7 +57,11 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 * Follow a user.
 * Unfollow a user.
 * See the number of followers and followings of a user in their profile page.
-
+#### Features that are displayed but currently not working
+* Search bar
+* Notification button
+* Discover button
+* Saved post button
 
 ## Current Technologies
 #### [Backend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/app)
@@ -96,6 +100,7 @@ Notable npm packages:
 
 ## Future Technologies
 * Uptime Robot - to keep the application awake in Heroku servers.
+* pg-search - to search the database for users
 * Active storage - to replace Paperclip.
 * WebSocket - for real time notification and direct messaging.
 
@@ -134,6 +139,10 @@ Notable npm packages:
     
 #### Multiple media in one post
 * User can upload multiple media (images or videos) in one post which can be nagivated from right to left or left to right with respective buttons on left and right side of post.
+
+#### Hashtags
+* User can add hashtags on their posts.
+* User can search hashtags in the search bar and find other posts with same hashtags.
 
 #### Video
 * User can upload videos of at most three minutes long.
