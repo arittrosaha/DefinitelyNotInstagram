@@ -33,12 +33,8 @@
 * Interact with each post's relevant options.
 #### Profile
 * See user information, profile picture and posts on user profile page.
-* Change their profile picture by clicking their profile picture on their profile page.
-* Edit their following profile informations:
-  * Name
-  * Username
-  * Bio
-  * Email
+* Change their profile picture by clicking their profile picture on their profile page when logged in.
+* Edit Name, Username, Bio, Email of logged in user.
 #### Posts
 * Post an image with or without a caption.
 * Delete a post.
