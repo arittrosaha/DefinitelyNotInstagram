@@ -1,6 +1,8 @@
 # Definitely Not Instagram
 [Live Link!](https://definitely-not-instagram.herokuapp.com/#/)
+
 Note - The application is hosted in Heroku which puts the application in sleep if not visited for a while. Thus visiting the link at first might take longer than ususal. In the near future, I intend to incorporate Uptime Robot to fix this situation.
+
 
 ## Summary
 **Synopsis** - Definitely Not Instagram is a full stack web application inspired by Instagram. It is built with a Ruby on Rails backend,  PostgreSQL database and React with a Redux architectural framework on the frontend.
@@ -56,6 +58,7 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 * Unfollow a user.
 * See the number of followers and followings of a user in their profile page.
 
+
 ## Current Technologies
 #### [Backend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/app)
 * Ruby on Rails
@@ -75,10 +78,12 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 * Babel and other relevent Babel npm packages.
 * Lodash 
 
+
 ## Future Technologies
 * Uptime Robot - to keep the application awake in Heroku servers.
 * Active storage - to replace Paperclip.
 * WebSocket - for real time notification and direct messaging.
+
 
 ## Future Features
 #### Authentication / Landing page
