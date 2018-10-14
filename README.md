@@ -5,7 +5,7 @@
 ### Summary
 **Synopsis** - Definitely Not Instagram is a full stack web application inspired by Instagram. It is built with a Ruby on Rails backend,  PostgreSQL database and React with a Redux architectural framework on the frontend.
 
-**Stack** - RUBY ON RAILS, POSTGRESQL, REACT, REDUX, JS-ES6, HTML5, CSS3, AWS S3, HEROKU.
+**Stack** - Ruby on Rails, PostgreSQL, React.js, Redux.js, JS-ES6, HTML5, CSS3, AWS S3, Heroku.
 
 **Key Points**:
 * Leveraged Bcrypt gem to securely hash user passwords, ensuring protected authentication.
