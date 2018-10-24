@@ -28,7 +28,6 @@
 
 .user-avatar {
   border-radius: 50%;
-  object-fit: cover;
 }
 
 .user-details {
@@ -50,17 +49,28 @@
   color: rgb(38,38,38);
   font-weight: 100;
   margin-right: 20px;
+  max-width: 287px;
+  overflow: scroll;
+}
+
+.user-second-count {
+  max-width: 91px;
+  overflow: scroll;
 }
 
 .user-full-name {
   display: inline;
   margin-right: 6px;
   font-weight: 600;
+  max-width: 185px;
+  overflow: scroll;
 }
 
 .user-bio {
   display: inline;
   line-height: 24px;
+  max-height: 66px;
+  overflow: scroll;
 }
 
 .user-post-header {

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :email, :username, :session_token, uniqueness: true
   validates :password, length: {minimum: 6}, allow_nil: true
   # validates_inclusion_of :gender, in: ["Male", "Female", "Not Specified"], allow_nil: true
-  # ,
+
   has_attached_file :avatar, default_url: 'https://s3.amazonaws.com/definitely-not-instagram-dev/users/default-user.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
@@ -41,9 +41,6 @@ class User < ApplicationRecord
     user = User.find_by(username: username)
     return nil unless user
     user.is_password?(password) ? user : nil
-    # or
-    # return nil unless user && user.valid_password?(password)
-    # user
   end
 
   def password=(password)
@@ -65,7 +62,6 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= generate_unique_session_token
-    # generate_unique_session_token unless self.session_token
   end
 
   def new_session_token
