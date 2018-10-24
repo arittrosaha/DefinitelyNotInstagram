@@ -84,6 +84,8 @@ Notable Gems:
 * jQuery Rails - for the use of ajax calls and respective promises.
 * aws-sdk - for utilizing Amazon Web Service's(AWS) S3 for storing user profile picture and uploads in a scalable manner.
 
+[[/app/assets/images/backend_code_snippet.png|A snippet of User model]]
+
 #### [Frontend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/frontend)
 
 The front end is built completely in React.js and in conjunction with Redux clientside storage. React's virtual DOM allows and diffing algorithm for lightning-quick and efficient rerendering without requiring new pages to be sent from the server. Even modals appear/disappear using React rather than toggling CSS display properties.
@@ -100,7 +102,7 @@ Notable npm packages:
 * Babel and other relevent Babel npm packages.
 * Lodash
 
-![A snippet of User modal](app/images/backend_code_snippet.png)
+
 
 
 ## Future Technologies
