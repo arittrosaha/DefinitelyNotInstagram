@@ -30,6 +30,9 @@ Note - The application is hosted in Heroku which puts the application in sleep i
   * Password length is not greater or equal to six characters.
   * One of the field is missing.
   * Email is not in a valid email format.
+
+[[/app/assets/gifs/authentication.gif|Authentication]]
+
 #### Home
 * Scroll through, in reverse-chronological order/ newest first, a list of user's own posts and their following users' posts with their respective information.
 * Interact with each post's relevant options.
@@ -95,7 +98,9 @@ Notable npm packages:
 * Redux and other relevant Redux npm packages.
 * Webpack and other relevent Webpack npm packages.
 * Babel and other relevent Babel npm packages.
-* Lodash 
+* Lodash
+
+![A snippet of User modal](app/images/backend_code_snippet.png)
 
 
 ## Future Technologies
@@ -121,14 +126,14 @@ Notable npm packages:
   * Another user liked your post.
   * Another user commented on your post.
   * Another user followed you.
-  
+
 #### Discover
 * Create a discover page which will display a list of most liked posts from the past three months of not followed user's who are followed by your followings.
 
 #### Likes-Comments
-* Individual comments can be liked and unliked with a visible counter that can be clickable to display a list of likers. 
+* Individual comments can be liked and unliked with a visible counter that can be clickable to display a list of likers.
   * Note - The backend required for this to happend exists already with polymorphic association between posts and comments for likes.
-  
+
 #### Password
 * Change password
 * More restrictions to have stronger password:
@@ -136,7 +141,7 @@ Notable npm packages:
   * At least one uppercase letter and one lowercase letter.
   * At least one number.
   * At least one special character.
-    
+
 #### Multiple media in one post
 * User can upload multiple media (images or videos) in one post which can be nagivated from right to left or left to right with respective buttons on left and right side of post.
 
