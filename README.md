@@ -31,9 +31,8 @@ Note - The application is hosted in Heroku which puts the application in sleep i
   * One of the field is missing.
   * Email is not in a valid email format.
 
-![Authentication](app/assets/gifs/authentication.gif)
-![Authentication](app/assets/images/backend_code_snippet.png)
-<img src="app/assets/gifs/authentication.gif" alt="Authentication" width="700"/>
+![Authentication](app/assets/gifs/authentication_b.gif)
+<!-- <img src="app/assets/gifs/authentication.gif" alt="Authentication" width="700"/> -->
 
 
 #### Home
