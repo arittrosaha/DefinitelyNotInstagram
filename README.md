@@ -85,7 +85,7 @@ Notable Gems:
 * jQuery Rails - for the use of ajax calls and respective promises.
 * aws-sdk - for utilizing Amazon Web Service's(AWS) S3 for storing user profile picture and uploads in a scalable manner.
 
-[[/app/assets/images/backend_code_snippet.png|A snippet of User model]]
+[[app/assets/images/backend_code_snippet.png|A snippet of User model]]
 
 #### [Frontend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/frontend)
 
