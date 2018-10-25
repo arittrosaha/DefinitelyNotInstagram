@@ -31,8 +31,10 @@ Note - The application is hosted in Heroku which puts the application in sleep i
   * One of the field is missing.
   * Email is not in a valid email format.
 
-[[/app/assets/gifs/authentication.gif|Authentication]]
-<img src=“app/assets/gifs/authentication.gif” width=“180" height=“210” />
+![Authentication](app/assets/gifs/authentication.gif)
+![Authentication](app/assets/images/backend_code_snippet.png)
+<img src="app/assets/gifs/authentication.gif" alt="Authentication" width="700"/>
+
 
 #### Home
 * Scroll through, in reverse-chronological order/ newest first, a list of user's own posts and their following users' posts with their respective information.
