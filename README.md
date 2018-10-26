@@ -141,12 +141,12 @@ Notable npm packages:
 * Babel and other relevent Babel npm packages.
 * Lodash
 
-A code snippet from frontend (particularly from the post_show component):
+A code snippet from frontend (particularly from the post_show component). It is a custom JS function to build responsive design for posts based on respective image dimension:
+
 <p align = "center">
 <img src="app/assets/images/frontend_code_snippet.png" alt="A code snippet from Frontend" width = "700" align = "center" />
 </p>
 
-* A custom JS function to build responsive design for posts based on respective image dimension.
 
 
 
