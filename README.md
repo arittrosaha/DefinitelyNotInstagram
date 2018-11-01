@@ -3,7 +3,9 @@
 
 Note - The application is hosted in Heroku which puts the application in sleep if not visited for a while. Thus visiting the link at first might take longer than ususal. In the near future, I intend to incorporate Uptime Robot to fix this situation.
 
+**_If you find a bug or have a recommendation to make this application better, please contact me through GitHub or my email, arittrosaha@gmail.com. Thank you very much!_**
 
+---
 ## Summary
 **Synopsis** - Definitely Not Instagram is a full stack web application inspired by Instagram. It is built with a Ruby on Rails backend,  PostgreSQL database and React with a Redux architectural framework on the frontend.
 
@@ -20,7 +22,7 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 * Optimized code by creating reusable, DRY React components to improve maintainability and scalability.
 * Utilized Redux and jBuilder to store fetched data and receive backend JSON response, respectively, in client side.
 
-
+---
 ## Current Features
 #### Authentication / Landing page
 * Sign up for a new account with a email, name, username and password.
@@ -92,12 +94,25 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 <img src="app/assets/gifs/followings.gif" alt="Followings" width = "700" align = "center" />
 </p>
 
+---
+## Bugs
+#### Features currently worked on
+ * When followers count is clicked, there will be a list of clickable followers that will navigate to their respective user profile.
+ * When followings count is clicked, there will be a list of clickable followings that will navigate to their respective user profile.
+ * When likes count is clicked, there will be a list of clickable likers that will navigate to their respective user profile.
+ * Search bar to search any users.
+
+#### Current bugs
+ * Comments are not wrapping around based on the width of a post's width.
+ * When a comment is entered without any text, the error is displayed in all posts viewed in the feed.
+
 #### Features that are displayed but currently not working
 * Search bar
 * Notification button
 * Discover button
 * Saved post button
 
+---
 ## Current Technologies
 #### [Backend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/app)
 
@@ -149,15 +164,21 @@ A code snippet from frontend (particularly from the post_show component). It is 
 
 
 
-
+---
 ## Future Technologies
 * Uptime Robot - to keep the application awake in Heroku servers.
 * pg-search - to search the database for users
 * Active storage - to replace Paperclip.
 * WebSocket - for real time notification and direct messaging.
 
+---
+## Future Features 
+Note - The following list is listed in order of importance.
 
-## Future Features
+#### Infinite Scroll
+* In a **user profile**, only 12 posts will be displayed at first. As user scrolls to the bottom of the page, 12 more posts will be loaded and so on...
+* In the **home feed**, only 10 posts will be displayed at first. As user scrolls to the bottom of the page, 10 more posts will be loaded and so on...
+
 #### Authentication / Landing page
 * Continuous animation with the phone's screen continuosly changing.
 * Circle check or cross animation on right of each field depending on relevant errors or lack their of.
@@ -165,21 +186,19 @@ A code snippet from frontend (particularly from the post_show component). It is 
 #### Home
 * Expand the right user box to contain scrollable list of user's followings which will be clickable to take them to the respective users' profile page.
 
-#### Search
-* Fix the search bar so its workable and can be used to retrive any user in the database.
+#### Likes-Comments
+* Individual comments can be liked and unliked with a visible counter that can be clickable to display a list of likers.
+
+Note - The backend required for this to happend exists already with polymorphic association between posts and comments for likes.
+
+#### Discover
+* Create a discover page which will display a list of most liked posts from the past three months of not followed user's who are followed by your followings.
 
 #### Notification
 * Create a realtime notification system for the following events:
   * Another user liked your post.
   * Another user commented on your post.
   * Another user followed you.
-
-#### Discover
-* Create a discover page which will display a list of most liked posts from the past three months of not followed user's who are followed by your followings.
-
-#### Likes-Comments
-* Individual comments can be liked and unliked with a visible counter that can be clickable to display a list of likers.
-  * Note - The backend required for this to happend exists already with polymorphic association between posts and comments for likes.
 
 #### Password
 * Change password
