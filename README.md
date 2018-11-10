@@ -3,7 +3,9 @@
 
 Note - The application is hosted in Heroku which puts the application in sleep if not visited for a while. Thus visiting the link at first might take longer than ususal. In the near future, I intend to incorporate Uptime Robot to fix this situation.
 
+**_If you find a bug or have a recommendation to make this application better, please contact me through GitHub or my email, arittrosaha@gmail.com. Thank you very much!_**
 
+---
 ## Summary
 **Synopsis** - Definitely Not Instagram is a full stack web application inspired by Instagram. It is built with a Ruby on Rails backend,  PostgreSQL database and React with a Redux architectural framework on the frontend.
 
@@ -20,7 +22,7 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 * Optimized code by creating reusable, DRY React components to improve maintainability and scalability.
 * Utilized Redux and jBuilder to store fetched data and receive backend JSON response, respectively, in client side.
 
-
+---
 ## Current Features
 #### Authentication / Landing page
 * Sign up for a new account with a email, name, username and password.
@@ -31,17 +33,27 @@ Note - The application is hosted in Heroku which puts the application in sleep i
   * One of the field is missing.
   * Email is not in a valid email format.
 
-![Authentication](app/assets/gifs/authentication_b.gif)
-<!-- <img src="app/assets/gifs/authentication.gif" alt="Authentication" width="700"/> -->
-
+<p align = "center">
+<img src="app/assets/gifs/authentication.gif" alt="Authentication" width = "700" align = "center" />
+</p>
 
 #### Home
 * Scroll through, in reverse-chronological order/ newest first, a list of user's own posts and their following users' posts with their respective information.
 * Interact with each post's relevant options.
+
+<p align = "center">
+<img src="app/assets/gifs/home.gif" alt="Home" width = "700" align = "center" />
+</p>
+
 #### Profile
 * See user information, profile picture and posts on user profile page.
 * Change their profile picture by clicking their profile picture on their profile page when logged in.
 * Edit Name, Username, Bio, Email of logged in user.
+
+<p align = "center">
+<img src="app/assets/gifs/profile.gif" alt="Profile" width = "700" align = "center" />
+</p>
+
 #### Posts
 * Post an image with or without a caption.
 * Delete a post.
@@ -49,25 +61,58 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 * Click individual post on user's profile to see post and its relevant information.
 * Click user profile picture or username to go their profile page.
 * Receive error if image is missing.
+
+<p align = "center">
+<img src="app/assets/gifs/posts.gif" alt="Posts" width = "700" align = "center" />
+</p>
+
 #### Likes
 * Like a post.
 * Unlike a post.
 * See the number of likes along with UI to indicate if user liked the post.
+
+<p align = "center">
+<img src="app/assets/gifs/likes.gif" alt="Likes" align = "center" />
+</p>
+
 #### Comments
 * Comment on posts.
 * Delete any comments under your posts and only user's own comments on a different user's post.
 * Scroll through comments under posts.
 * Receive errors is user wants to create a comment without any text.
+
+<p align = "center">
+<img src="app/assets/gifs/comments.gif" alt="Comments" width = "700" align = "center" />
+</p>
+
 #### Follows
 * Follow a user.
 * Unfollow a user.
 * See the number of followers and followings of a user in their profile page.
+
+<p align = "center">
+<img src="app/assets/gifs/followings.gif" alt="Followings" width = "700" align = "center" />
+</p>
+
+---
+## Bugs
+#### Features currently worked on
+ * When followers count is clicked, there will be a list of clickable followers that will navigate to their respective user profile.
+ * When followings count is clicked, there will be a list of clickable followings that will navigate to their respective user profile.
+ * When likes count is clicked, there will be a list of clickable likers that will navigate to their respective user profile.
+ * Search bar to search any users.
+
+#### Current bugs
+ * Comments are not wrapping around based on the width of a post's width.
+ * When a comment is entered without any text, the error is displayed in all posts viewed in the feed.
+
 #### Features that are displayed but currently not working
 * Search bar
 * Notification button
 * Discover button
 * Saved post button
 
+---
 ## Current Technologies
 #### [Backend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/app)
 
@@ -86,7 +131,14 @@ Notable Gems:
 * jQuery Rails - for the use of ajax calls and respective promises.
 * aws-sdk - for utilizing Amazon Web Service's(AWS) S3 for storing user profile picture and uploads in a scalable manner.
 
-[[app/assets/images/backend_code_snippet.png|A snippet of User model]]
+A code snippet from backend of User modal:
+<p align = "center">
+<img src="app/assets/images/backend_code_snippet.png" alt="A code snippet of User modal" width = "700" align = "center" />
+</p>
+
+* Line 32 to 38 - An example of the many rails associations I created to relate my tables, stored in my PostgreSQL server, through their respective indexed foreign keys.
+* Line 40 to 53 - A portion of the code to check and create password by leveraging Bcrypt gem to securely hash and salt user passwords to ensure protected authentication.
+* Line 55 to 69 - A portion of the code to generate (by using rails Secure, reset and ensure session_token for handling a user's logged in sessions.
 
 #### [Frontend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/frontend)
 
@@ -104,17 +156,29 @@ Notable npm packages:
 * Babel and other relevent Babel npm packages.
 * Lodash
 
+A code snippet from frontend (particularly from the post_show component). It is a custom JS function to build responsive design for posts based on respective image dimension:
+
+<p align = "center">
+<img src="app/assets/images/frontend_code_snippet.png" alt="A code snippet from Frontend" width = "700" align = "center" />
+</p>
 
 
 
+---
 ## Future Technologies
 * Uptime Robot - to keep the application awake in Heroku servers.
 * pg-search - to search the database for users
 * Active storage - to replace Paperclip.
 * WebSocket - for real time notification and direct messaging.
 
+---
+## Future Features 
+Note - The following list is listed in order of importance.
 
-## Future Features
+#### Infinite Scroll
+* In a **user profile**, only 12 posts will be displayed at first. As user scrolls to the bottom of the page, 12 more posts will be loaded and so on...
+* In the **home feed**, only 10 posts will be displayed at first. As user scrolls to the bottom of the page, 10 more posts will be loaded and so on...
+
 #### Authentication / Landing page
 * Continuous animation with the phone's screen continuosly changing.
 * Circle check or cross animation on right of each field depending on relevant errors or lack their of.
@@ -122,21 +186,19 @@ Notable npm packages:
 #### Home
 * Expand the right user box to contain scrollable list of user's followings which will be clickable to take them to the respective users' profile page.
 
-#### Search
-* Fix the search bar so its workable and can be used to retrive any user in the database.
+#### Likes-Comments
+* Individual comments can be liked and unliked with a visible counter that can be clickable to display a list of likers.
+
+Note - The backend required for this to happend exists already with polymorphic association between posts and comments for likes.
+
+#### Discover
+* Create a discover page which will display a list of most liked posts from the past three months of not followed user's who are followed by your followings.
 
 #### Notification
 * Create a realtime notification system for the following events:
   * Another user liked your post.
   * Another user commented on your post.
   * Another user followed you.
-
-#### Discover
-* Create a discover page which will display a list of most liked posts from the past three months of not followed user's who are followed by your followings.
-
-#### Likes-Comments
-* Individual comments can be liked and unliked with a visible counter that can be clickable to display a list of likers.
-  * Note - The backend required for this to happend exists already with polymorphic association between posts and comments for likes.
 
 #### Password
 * Change password
