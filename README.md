@@ -118,11 +118,11 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 
 The app was built using Ruby on Rails on the back end with a PostgreSQL database. Back end structure is RESTful and all the data requests use AJAX and are fulfilled with a JSON API. Associations are used to prefetch data in order to minimize SQL queries to the database.
 
-Languages:
+**Languages**:
 * Ruby
 * SQL
 
-Notable Gems:
+**Notable Gems**:
 * rails - Ruby on Rails for a MVC backend
 * pg - PostgreSQL for database.
 * bcrypt - to securely hash and salt user passwords.
@@ -131,7 +131,7 @@ Notable Gems:
 * jQuery Rails - for the use of ajax calls and respective promises.
 * aws-sdk - for utilizing Amazon Web Service's(AWS) S3 for storing user profile picture and uploads in a scalable manner.
 
-A code snippet from backend of User modal:
+**A code snippet from backend of User modal**:
 <p align = "center">
 <img src="app/assets/images/backend_code_snippet.png" alt="A code snippet of User modal" width = "700" align = "center" />
 </p>
@@ -144,25 +144,44 @@ A code snippet from backend of User modal:
 
 The front end is built completely in React.js and in conjunction with Redux clientside storage. React's virtual DOM allows and diffing algorithm for lightning-quick and efficient rerendering without requiring new pages to be sent from the server. Even modals appear/disappear using React rather than toggling CSS display properties.
 
-Languages:
+**Languages**:
 * JavaScript ES6
 * HTML5
 * CSS3
 
-Notable npm packages:
+**Notable npm packages**:
 * React and other relevant React npm packages.
 * Redux and other relevant Redux npm packages.
 * Webpack and other relevent Webpack npm packages.
 * Babel and other relevent Babel npm packages.
 * Lodash
 
-A code snippet from frontend (particularly from the post_show component). It is a custom JS function to build responsive design for posts based on respective image dimension:
+#### Custom JS Design:
+A code snippet from frontend (particularly from the post_show component). It is a custom JS function to build custom design for posts based on respective image dimension.
 
 <p align = "center">
 <img src="app/assets/images/frontend_code_snippet.png" alt="A code snippet from Frontend" width = "700" align = "center" />
 </p>
+ 
+           
+ 
+#### React Modularity:
+A code snippet from frontend showing an example of modularity present throughout this application. 
 
+<table>
+  <tr>
+    <td align="center"><b>Log In Form Container</b></td>
+    <td align="center"><b>Sign Up Form Container</b></td>
+  </tr>
+  <tr>
+    <td><img src="app/assets/images/loginform.png" alt="Log in form container" /></td>
+    <td><img src="app/assets/images/signupform.png" alt="Sign up form container" /></td>
+  </tr>
+</table>
 
+* Both the log-in and sign-up functionality share a common form compotent called SessionForm in this application by connection themselves with the common component via react-redux's connect() function. 
+* Other moduled commponent present in the application are comment_form, comment_index, post_image. 
+* More commponents are already in process and will be modularized in the future making the code as DRY as possible.
 
 ---
 ## Future Technologies
