@@ -114,7 +114,7 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 
 ---
 ## Current Technologies
-#### [Backend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/app)
+### [Backend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/app)
 
 The app was built using Ruby on Rails on the back end with a PostgreSQL database. Back end structure is RESTful and all the data requests use AJAX and are fulfilled with a JSON API. Associations are used to prefetch data in order to minimize SQL queries to the database.
 
@@ -140,7 +140,7 @@ The app was built using Ruby on Rails on the back end with a PostgreSQL database
 * Line 40 to 53 - A portion of the code to check and create password by leveraging Bcrypt gem to securely hash and salt user passwords to ensure protected authentication.
 * Line 55 to 69 - A portion of the code to generate (by using rails Secure, reset and ensure session_token for handling a user's logged in sessions.
 
-#### [Frontend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/frontend)
+### [Frontend](https://github.com/arittrosaha/DefinitelyNotInstagram/tree/master/frontend)
 
 The front end is built completely in React.js and in conjunction with Redux clientside storage. React's virtual DOM allows and diffing algorithm for lightning-quick and efficient rerendering without requiring new pages to be sent from the server. Even modals appear/disappear using React rather than toggling CSS display properties.
 
