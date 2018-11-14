@@ -1,5 +1,5 @@
 # Definitely Not Instagram
-[Live Link!](https://definitely-not-instagram.herokuapp.com/#/)
+[Live Link!](https://definitely-not-instagram.herokuapp.com/#/) - Before testing the site, please try to read the following readme in it's entirety.
 
 Note - The application is hosted in Heroku which puts the application in sleep if not visited for a while. Thus visiting the link at first might take longer than ususal. In the near future, I intend to incorporate Uptime Robot to fix this situation.
 
@@ -95,7 +95,7 @@ Note - The application is hosted in Heroku which puts the application in sleep i
 </p>
 
 ---
-## Bugs
+## Ongoing Development
 #### Features currently worked on
  * When followers count is clicked, there will be a list of clickable followers that will navigate to their respective user profile.
  * When followings count is clicked, there will be a list of clickable followings that will navigate to their respective user profile.
